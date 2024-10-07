@@ -41,7 +41,7 @@ pip install -r requirements.txt
 ## Usage
 
 This code is for SAMPa's implementation. It parallelizes two gradient computations on 2 GPUs. 
-Specifically in `train.py`, `global_rank:0` handles $\nabla f (\widetilde{x}_t)$ and `global_rank:1` handles $\nabla f(y_{\mathit{t+1}})$.
+Specifically in `train.py`, `global_rank:0` handles $\nabla f (\widetilde{x}_t)$ and `global_rank:1` handles $\nabla f(y\_{t+1})$.
 
 To train ResNet-56 on CIFAR-10 using SAMPa, use the following command:
 
