@@ -4,13 +4,23 @@ This is the official code for [SAMPa: Sharpness-aware Minimization Parallelized]
 
 SAMPa introduces a fully parallelized version of sharpness-aware minimization (SAM) by allowing the two gradient computations to occur simultaneously:
 
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 $$
-\begin{align}
+\begin{aligned}
 \widetilde{x}_t &= x_t + \rho \frac{\nabla f(y_{t})}{\|\nabla f(y_{t}) \|} \\
 y_{t+1} &= x_t - \eta_t  \nabla f(y_{t}) \\
 x_{t+1} &= x_t - \eta_t (1-\lambda) \nabla f (\widetilde{x}_t) - \eta_t \lambda \nabla f(y_{t+1})
-\end{align}
+\end{aligned}
 $$
+
 
 where the gradients $\nabla f(\widetilde{x}_t)$ and $\nabla f(y_{t+1})$ are computed in parallel, significantly improving efficiency.
 
