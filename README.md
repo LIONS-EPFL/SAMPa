@@ -4,11 +4,13 @@ This is the official code for [SAMPa: Sharpness-aware Minimization Parallelized]
 
 SAMPa introduces a fully parallelized version of sharpness-aware minimization (SAM) by allowing the two gradient computations to occur simultaneously:
 
-<pre>
-x<sub>t</sub>̃ = x<sub>t</sub> + ρ ∇f(y<sub>t</sub>) / ||∇f(y<sub>t</sub>)||
-y<sub>t+1</sub> = x<sub>t</sub> - η<sub>t</sub> ∇f(y<sub>t</sub>)
-x<sub>t+1</sub> = x<sub>t</sub> - η<sub>t</sub> (1 - λ) ∇f(x<sub>t</sub>̃) - η<sub>t</sub> λ ∇f(y<sub>t+1</sub>)
-</pre>
+$$
+\begin{aligned}
+\widetilde{x}_t &= x_t + \rho \frac{\nabla f(y_{t})}{\|\nabla f(y_{t}) \|} \\
+y_{t+1} &= x_t - \eta_t  \nabla f(y_{t}) \\
+x_{t+1} &= x_t - \eta_t (1-\lambda) \nabla f (\widetilde{x}_t) - \eta_t \lambda \nabla f(y_{t+1})
+\end{aligned}
+$$
 
 where the gradients $\nabla f(\widetilde{x}_t)$ and &nabla;f(y<sub>t+1</sub>) are computed in parallel, significantly improving efficiency.
 
@@ -32,7 +34,7 @@ pip install -r requirements.txt
 ## Usage
 
 This code is for SAMPa's implementation. It parallelizes two gradient computations on 2 GPUs. 
-Specifically in `train.py`, `global_rank:0` handles $\nabla f (\widetilde{x}_t)$ and `global_rank:1` handles &nabla;f(y<sub>t+1</sub>).
+Specifically in `train.py`, `global_rank:0` handles $\nabla f (\widetilde{x}_t)$ and `global_rank:1` handles $\nabla f(y_{\t+1})$.
 
 To train ResNet-56 on CIFAR-10 using SAMPa, use the following command:
 
