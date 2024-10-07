@@ -22,7 +22,7 @@ x_{t+1} &= x_t - \eta_t (1-\lambda) \nabla f (\widetilde{x}_t) - \eta_t \lambda 
 $$
 
 
-where the gradients $\nabla f(\widetilde{x}_t)$ and $\nabla f(y_{t+1})$ are computed in parallel, significantly improving efficiency.
+where the gradients $\nabla f(\widetilde{x}_t)$ and &nabla;f(y<sub>t+1</sub>) are computed in parallel, significantly improving efficiency.
 
 SAMPa serves as one of the most efficient SAM variants:
 
