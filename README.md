@@ -12,6 +12,13 @@ x_{t+1} &= x_t - \eta_t (1-\lambda) \nabla f (\widetilde{x}_t) - \eta_t \lambda 
 \end{aligned}
 $$
 
+<pre>
+x̃<sub>t</sub> = x<sub>t</sub> + ρ ∇f(y<sub>t</sub>) / ||∇f(y<sub>t</sub>)||
+y<sub>t+1</sub> = x<sub>t</sub> - η<sub>t</sub> ∇f(y<sub>t</sub>)
+x<sub>t+1</sub> = x<sub>t</sub> - η<sub>t</sub>(1 - λ) ∇f(x̃<sub>t</sub>) - η<sub>t</sub>λ ∇f(y<sub>t+1</sub>)
+</pre>
+
+
 where the gradients $\nabla f(\widetilde{x}_t)$ and &nabla;f(y<sub>t+1</sub>) are computed in parallel, significantly improving efficiency.
 
 SAMPa serves as one of the most efficient SAM variants:
@@ -34,7 +41,7 @@ pip install -r requirements.txt
 ## Usage
 
 This code is for SAMPa's implementation. It parallelizes two gradient computations on 2 GPUs. 
-Specifically in `train.py`, `global_rank:0` handles $\nabla f (\widetilde{x}_t)$ and `global_rank:1` handles $\nabla f(y_{n+1})$.
+Specifically in `train.py`, `global_rank:0` handles $\nabla f (\widetilde{x}_t)$ and `global_rank:1` handles $\nabla f(y_{t+1})$.
 
 To train ResNet-56 on CIFAR-10 using SAMPa, use the following command:
 
