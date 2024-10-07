@@ -6,20 +6,14 @@ SAMPa introduces a fully parallelized version of sharpness-aware minimization (S
 
 $$
 \begin{aligned}
-\widetilde{x}_t &= x_t + \rho \frac{\nabla f(y_{t})}{\|\nabla f(y_{t}) \|} \\
-y_{t+1} &= x_t - \eta_t  \nabla f(y_{t}) \\
-x_{t+1} &= x_t - \eta_t (1-\lambda) \nabla f (\widetilde{x}_t) - \eta_t \lambda \nabla f(y_{t+1})
+\widetilde{x}_t &= x_t + \rho \frac{\nabla f(y_t)}{\|\nabla f(y_t) \|} \\
+y_{t+1} &= x_t - \eta_t  \nabla f(y_t) \\
+x_{t+1} &= x_t - \eta_t (1-\lambda) \nabla f (\widetilde{x}_t) - \eta_t \lambda \nabla f(y\_{t+1})
 \end{aligned}
 $$
 
-<pre>
-x̃<sub>t</sub> = x<sub>t</sub> + ρ ∇f(y<sub>t</sub>) / ||∇f(y<sub>t</sub>)||
-y<sub>t+1</sub> = x<sub>t</sub> - η<sub>t</sub> ∇f(y<sub>t</sub>)
-x<sub>t+1</sub> = x<sub>t</sub> - η<sub>t</sub>(1 - λ) ∇f(x̃<sub>t</sub>) - η<sub>t</sub>λ ∇f(y<sub>t+1</sub>)
-</pre>
 
-
-where the gradients $\nabla f(\widetilde{x}_t)$ and &nabla;f(y<sub>t+1</sub>) are computed in parallel, significantly improving efficiency.
+where the gradients $\nabla f(\widetilde{x}_t)$ and $\nabla f(y\_{t+1}$ are computed in parallel, significantly improving efficiency.
 
 SAMPa serves as one of the most efficient SAM variants:
 
