@@ -3,6 +3,7 @@
 This is official code for [SAMPa: Sharpness-aware Minimization Parallelized]() accepted at NeurIPS 2024.
 
 SAMPa introduces a fully parallelized version of sharpness-aware minimization (SAM) by allowing the two gradient computations to occur simultaneously:
+
 $$
 \begin{aligned}
 \widetilde{x}_t &= x_t + \rho \frac{\nabla f(y_{t})}{\|\nabla f(y_{t}) \|} \\
@@ -10,12 +11,12 @@ y_{t+1} &= x_t - \eta_t  \nabla f(y_{t}) \\
 x_{t+1} &= x_t - \eta_t (1-\lambda) \nabla f (\widetilde{x}_t) - \eta_t \lambda \nabla f(y_{t+1})
 \end{aligned}
 $$
+
 where the gradients $\nabla f(\widetilde{x}_t)$ and $\nabla f(y_{t+1})$ are computed in parallel, significantly improving efficiency.
 
-SAMPa serves as one of most efficient SAM variants:
+SAMPa serves as one of the most efficient SAM variants:
 
-<img src="./figs/SAMPa_numGrads.png" width="300">
-<img src="./figs/SAMPa_Time.png" width="300">
+<img src="./figs/SAMPa_numGrads.png" width="300"> <img src="./figs/SAMPa_Time.png" width="300">
 
 ## Setup
 
