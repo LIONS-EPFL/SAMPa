@@ -1,0 +1,9 @@
+datargs
+torch==2.2.2
+torchvision==0.15.2
+matplotlib
+numpy
+pandas
+math
+time
+lightning-fabric
