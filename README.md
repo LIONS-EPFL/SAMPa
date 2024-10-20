@@ -1,6 +1,6 @@
 # SAMPa: Sharpness-aware Minimization Parallelized
 
-This is the official code for [SAMPa: Sharpness-aware Minimization Parallelized]() accepted at NeurIPS 2024.
+This is the official code for [SAMPa: Sharpness-aware Minimization Parallelized](https://arxiv.org/pdf/2410.10683v1) accepted at NeurIPS 2024.
 
 SAMPa introduces a fully parallelized version of sharpness-aware minimization (SAM) by allowing the two gradient computations to occur simultaneously:
 
