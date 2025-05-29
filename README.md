@@ -44,12 +44,12 @@ CUDA_VISIBLE_DEVICES=0,1 python train.py --model resnet56 --dataset cifar10 --rh
 ```
 
 
-<!-- ## Citation
+## Citation
 ```
-@inproceedings{xie2024improving,
+@inproceedings{xie2024sampa,
   title={{SAMPa}: Sharpness-aware Minimization Parallelized},
   author={Xie, Wanyun and Pethick, Thomas and Cevher, Volkan},
   booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
   year={2024}
 }
-```  -->
+```
